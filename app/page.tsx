@@ -25,10 +25,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
           <button onClick={scrollToTop} aria-label="맨 위로 이동">
             <Image
-              src="/Bettercode.jpg"
+              src="/Bettercode.png"
               alt="BetterCode Logo"
-              width={120}
-              height={32}
+              width={60}
+              height={15}
               priority
             />
           </button>
