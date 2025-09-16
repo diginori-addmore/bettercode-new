@@ -8,6 +8,7 @@ import Mainfunction from "./components/Mainfunction";
 const navItems = [
   { label: '위챗 미니프로그램 쇼핑몰', href: '#wechat-mall' },
   { label: '중국 마케팅 사례', href: '#marketing-cases' },
+  { label: 'Insight', href: '#Insight'},
   { label: 'betterPoS', href: '#better-pos' },
 ];
 
