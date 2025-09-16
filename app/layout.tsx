@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   title: "BetterCode",
   description: "BetterCode - 중국 소비자를 위한 토탈 커머스 플랫폼",
   icons: {
-    icon: "/Bettercode.png",
-    shortcut: "/Bettercode.png",
-    apple: "/Bettercode.png",
+    icon: "/Bettercode.jpg",
+    shortcut: "/Bettercode.jpg",
+    apple: "/Bettercode.jpg",
   },
 };
 
