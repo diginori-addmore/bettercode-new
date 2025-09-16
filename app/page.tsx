@@ -4,11 +4,13 @@ import { useState } from "react";
 import Image from "next/image";
 import Hero from "./components/Hero";
 import Mainfunction from "./components/Mainfunction";
+import AlternatingContentSection from "./components/AlternatingContentSection";
+import About from "./components/About";
 
 const navItems = [
   { label: '위챗 미니프로그램 쇼핑몰', href: '#wechat-mall' },
   { label: '중국 마케팅 사례', href: '#marketing-cases' },
-  { label: 'Insight', href: '#Insight'},
+  { label: 'Insight', href: '#Insight' },
   { label: 'betterPoS', href: '#better-pos' },
 ];
 
@@ -19,6 +21,55 @@ export default function Home() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const contentData = [
+    {
+      id: 1,
+      title: "클라우드 기반의\n월간/연간 단위 구독형 서비스",
+      description: "프로그램 설치 및 운영이 필요 없습니다.\n \
+      쇼핑몰 미니 프로그램 개선 사항을 추가 비용없이 지속적으로\n \
+      업그레이드를 받을 수 있습니다. \n \
+      월간/연간 구독형 서비스로, 초기 비용부담은 줄이고 지속적으로 \n \
+      개선된 서비스를 이용할 수 있습니다.",
+      imageUrl: "/images/placeholder-1.jpg",
+      imageAlt: "첫 번째 이미지",
+    },
+    {
+      id: 2,
+      title: "한국법인이 직접 운영 가능,\n \
+      한국에 있는 계좌로 판매대금을 \n \
+      직접 받을 수 있습니다",
+      description: "한국 사업자 등록증으로 미니프로그램을 직접 개설 및 운영이\n \
+      가능합니다.\n \
+      따라서 별도의 중국법인회사를 설립 할 필요가 없습니다. \n \
+      소비자가 지불한 판매 대금은 한국 지불 대항사(PG)사를 거쳐 \n \
+      고객사 계좌로 입금이 됩니다.",
+      imageUrl: "/images/placeholder-2.jpg",
+      imageAlt: "두 번째 이미지",
+    },
+    {
+      id: 3,
+      title: "한국, 중국 상황을 모두 이해하는\n한국의 서비스 운영/개발팀",
+      description: "2016년부터 북경에 수년간 커머스 시스템을 개발, 운영한 경험이\n \
+      있는 한국 개발자가 서비스를 개발/운영하고 있습니다.\n \
+      한국 개발팀이 자체 개발한 위챗 미니프로그램과 웹 관리도구를 제공합니다.\n \
+      신속한 신규 기능 추가 대응 및 긴급 상황에서도\n \
+      빠른 대웅이 가능합니다.",
+      imageUrl: "/images/placeholder-3.jpg",
+      imageAlt: "세 번째 이미지",
+    },
+    {
+      id: 4,
+      title: "콰징 통관 서비스 제공",
+      description: "보세구 사용 기반 통관(1210), 역직구 기반 통관(9610) 등의\n \
+      콰징 통관을 지원합니다.\n \
+      중국 해관에 정식 등록된 베터코드 중국 법인이 통관 신고를 \n \
+      지원해 드립니다. \n \
+      콰징 통관에 대해서는 별도로 문의해 주세요.",
+      imageUrl: "/images/placeholder-4.jpg",
+      imageAlt: "네 번째 이미지",
+    },
+  ];
 
   return (
     <>
@@ -102,8 +153,13 @@ export default function Home() {
         )}
       </nav>
 
+
+
+
       <Hero />
       <Mainfunction />
+      <AlternatingContentSection data={contentData} />
+      <About />
 
       {/* 페이지 메인 콘텐츠 */}
       <div className="font-sans min-h-screen pt-24 sm:pt-28 flex flex-col bg-white dark:bg-gray-900">
