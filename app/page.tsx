@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import Mainfunction from "./components/Mainfunction";
 import AlternatingContentSection from "./components/AlternatingContentSection";
 import About from "./components/About";
+import OperatingScreens from "./components/OperatingScreens";
 
 const navItems = [
   { label: '위챗 미니프로그램 쇼핑몰', href: '#wechat-mall' },
@@ -160,6 +161,7 @@ export default function Home() {
       <Mainfunction />
       <AlternatingContentSection data={contentData} />
       <About />
+      <OperatingScreens />
 
       {/* 페이지 메인 콘텐츠 */}
       <div className="font-sans min-h-screen pt-24 sm:pt-28 flex flex-col bg-white dark:bg-gray-900">

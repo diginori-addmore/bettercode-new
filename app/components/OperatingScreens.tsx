@@ -42,27 +42,21 @@ export default function OperatingScreens() {
         </div>
 
         <div className="flex justify-center">
-          <div className="relative w-full max-w-4xl h-96 bg-white dark:bg-gray-700 rounded-xl shadow-xl overflow-hidden">
+          <div className="relative w-full max-w-4xl h-96">
             {activeScreen === 'miniprogram' ? (
-              <div className="w-full h-full flex items-center justify-center p-8">
-                {/* TODO: 실제 미니프로그램 스크린샷 이미지로 교체 */}
-                <div className="text-center">
-                  <div className="w-48 h-80 bg-gray-200 dark:bg-gray-600 rounded-3xl mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-gray-500 dark:text-gray-400">미니프로그램 이미지</span>
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-300">위챗 미니프로그램 실제 화면</p>
-                </div>
-              </div>
+              <Image
+                src="/mini_app_image.png"
+                alt="위챗 미니프로그램 실제 화면"
+                fill
+                style={{ objectFit: 'contain' }}
+              />
             ) : (
-              <div className="w-full h-full flex items-center justify-center p-8">
-                {/* TODO: 실제 관리자 화면 스크린샷 이미지로 교체 */}
-                <div className="text-center">
-                  <div className="w-full h-64 bg-gray-200 dark:bg-gray-600 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-500 dark:text-gray-400">관리자 화면 이미지</span>
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-300 mt-4">웹 관리자 화면</p>
-                </div>
-              </div>
+              <Image
+                src="/admin_image.png"
+                alt="웹 관리자 화면"
+                fill
+                style={{ objectFit: 'contain' }}
+              />
             )}
           </div>
         </div>
