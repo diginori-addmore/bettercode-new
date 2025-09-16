@@ -1,5 +1,3 @@
-// app/page.tsx
-
 "use client";
 
 import { useState } from "react";
@@ -12,7 +10,8 @@ const navItems = [
 ];
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -20,30 +19,46 @@ export default function Home() {
 
   return (
     <>
-      {/* 1. 상단 고정 네비게이션 바 */}
-      <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-20">
+      {/* 상단 고정 네비게이션 바 */}
+      <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 text-gray-900 dark:text-white shadow-md z-20">
         <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
-          <button onClick={scrollToTop} aria-label="맨 위로 이동">
+          {/* 로고 */}
+          <button
+            onClick={scrollToTop}
+            aria-label="맨 위로 이동"
+            className="p-0 focus:outline-none"
+          >
             <Image
               src="/Bettercode.png"
               alt="BetterCode Logo"
-              width={60}
-              height={15}
+              width={120}
+              height={30}
               priority
             />
           </button>
-          <ul className="hidden md:flex items-center gap-8">
+
+          {/* PC 메뉴 */}
+          <ul className="md:flex items-center gap-8">
             {navItems.map((item) => (
               <li key={item.label}>
-                <a href={item.href} className="text-gray-700 hover:text-blue-600 font-medium">
+                <a
+                  href={item.href}
+                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium"
+                >
                   {item.label}
                 </a>
               </li>
             ))}
           </ul>
+
+          {/* 모바일 메뉴 버튼 */}
           <div className="md:hidden">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="메뉴 열기/닫기">
-              {isMenuOpen ? (
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="메뉴 열기/닫기"
+              className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
+            >
+              {isMobileMenuOpen ? (
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -55,35 +70,86 @@ export default function Home() {
             </button>
           </div>
         </div>
-        {isMenuOpen && (
-          <div className="md:hidden bg-white shadow-lg">
+
+        {/* 모바일 메뉴 */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-white dark:bg-gray-800 shadow-lg">
             <ul className="flex flex-col items-center gap-4 py-4">
               {navItems.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} className="text-gray-700 hover:text-blue-600 font-medium" onClick={() => setIsMenuOpen(false)}>
+                  <a
+                    href={item.href}
+                    className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
                     {item.label}
                   </a>
                 </li>
               ))}
+              <li>
+                <button
+                  onClick={() => { setIsPopupOpen(true); setIsMobileMenuOpen(false); }}
+                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium"
+                >
+                  Popup 보기
+                </button>
+              </li>
             </ul>
           </div>
         )}
       </nav>
 
-      {/* 2. 페이지 메인 콘텐츠 */}
-      <div className="font-sans min-h-screen pt-24 sm:pt-28 flex flex-col bg-white">
-        
-        {/* 👇 이 <main> 태그와 'grow' 클래스가 핵심입니다. */}
-        <main className="grow">
-          {/* 여기에 페이지 콘텐츠를 채워 넣으면 됩니다.
-            예를 들어, 나중에 <section>들을 이곳에 추가할 수 있습니다.
-            지금은 비워두어도 푸터는 아래에 고정됩니다.
-          */}
+      {/* 페이지 메인 콘텐츠 */}
+      <div className="font-sans min-h-screen pt-24 sm:pt-28 flex flex-col bg-white dark:bg-gray-900">
+        <main className="flex-1">
+          {/* 페이지 콘텐츠 영역 */}
         </main>
 
-        <footer className="w-full flex items-center justify-center bg-gray-900 text-white p-6">
-          <p className="text-sm text-gray-400">© 2025 BetterCode. All Rights Reserved.</p>
+        {/* footer 영역 */}
+        <footer className="w-full bg-gray-900 text-white p-8">
+          <div className="max-w-7xl mx-auto text-center space-y-4">
+            <p className="text-sm leading-6">
+              (주)베터코드<br />
+              contactus@bettercode.kr &nbsp; ⦁ &nbsp; 070-4334-2016<br />
+              서울시 강남구 강남대로 364 미왕빌딩 패스트파이브 강남 2호점 16층 1611호
+            </p>
+
+            <a
+              href="https://www.facebook.com/%EB%B2%A0%ED%84%B0%EC%BD%94%EB%93%9C-%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC-1666140583448053"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:underline"
+            >
+              Facebook 바로가기
+            </a>
+
+            <p className="text-xs text-gray-400">
+              Copyright &copy; BetterCode All Rights Reserved.
+            </p>
+          </div>
         </footer>
+
+        {/* Popup iframe */}
+        {isPopupOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-11/12 md:w-3/4 lg:w-1/2">
+              <div className="flex justify-end p-2">
+                <button
+                  className="text-gray-700 dark:text-gray-300 hover:text-red-500"
+                  onClick={() => setIsPopupOpen(false)}
+                >
+                  닫기
+                </button>
+              </div>
+              <div className="p-4">
+                <iframe
+                  src="https://www.xiaohongshu.com/discovery/item/5e8494d20000000001005750?apptime=1585747249&appuid=595667a350c4b40153cb9370&xhsshare=CopyLink"
+                  className="w-full h-96 border-0"
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
