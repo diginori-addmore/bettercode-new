@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Hero from "./components/Hero";
+import Mainfunction from "./components/Mainfunction";
 
 const navItems = [
   { label: '위챗 미니프로그램 쇼핑몰', href: '#wechat-mall' },
@@ -31,8 +33,8 @@ export default function Home() {
             <Image
               src="/Bettercode.png"
               alt="BetterCode Logo"
-              width={120}
-              height={30}
+              width={40}
+              height={10}
               priority
             />
           </button>
@@ -98,6 +100,9 @@ export default function Home() {
           </div>
         )}
       </nav>
+
+      <Hero />
+      <Mainfunction />
 
       {/* 페이지 메인 콘텐츠 */}
       <div className="font-sans min-h-screen pt-24 sm:pt-28 flex flex-col bg-white dark:bg-gray-900">
