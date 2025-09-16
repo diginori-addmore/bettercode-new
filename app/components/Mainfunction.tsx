@@ -23,7 +23,7 @@ export default function FeatureSection() {
     return (
         // 전체 페이지 컨테이너: 흰 배경, 다크 모드 시 어두운 배경
         // py-20: 상하 패딩으로 네비게이션바 등과 여백 확보
-        <div className="bg-white dark:bg-gray-900 py-20 px-4 sm:px-6 lg:px-8">
+        <div className="bg-white dark:bg-gray-900 py-6 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto text-center">
 
                 <h2 className="text-3xl sm:text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
