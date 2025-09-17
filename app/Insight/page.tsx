@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const navItems = [
   { label: '위챗 미니프로그램 쇼핑몰', href: '/' },
-  { label: '중국 마케팅 사례', href: '#marketing-cases' },
+  { label: '중국 마케팅 사례', href: '/china-marketing' },
   { label: 'Insight', href: '/Insight' },
   { label: 'BetterPoS', href: '/BetterPos' },
 ];
