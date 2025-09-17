@@ -422,7 +422,8 @@ export default function ChinaMarketing() {
           <div className="max-w-7xl mx-auto px-6">
             {/* 메인 비주얼 슬라이더 */}
             <div
-              className="relative w-full h-48 sm:h-64 md:h-96 mb-8 overflow-hidden rounded-lg cursor-grab active:cursor-grabbing"
+              className="relative w-full mb-8 overflow-hidden rounded-lg cursor-grab active:cursor-grabbing"
+              style={{ aspectRatio: '16/9' }}
               onMouseDown={handleDragStart}
               onMouseMove={handleDragMove}
               onMouseUp={handleDragEnd}
@@ -446,7 +447,7 @@ export default function ChinaMarketing() {
                       src={image.desktop}
                       alt={image.alt}
                       fill
-                      style={{ objectFit: 'cover' }}
+                      style={{ objectFit: 'contain' }}
                       priority={index === 0}
                       draggable={false}
                       className="hidden md:block"
@@ -456,7 +457,7 @@ export default function ChinaMarketing() {
                       src={image.mobile}
                       alt={image.alt}
                       fill
-                      style={{ objectFit: 'cover' }}
+                      style={{ objectFit: 'contain' }}
                       priority={index === 0}
                       draggable={false}
                       className="block md:hidden"
