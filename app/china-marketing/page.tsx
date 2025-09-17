@@ -5,6 +5,12 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+// 마케팅 페이지 전용 컴포넌트들 import
+import VisualSlider from "./components/VisualSlider";
+import MarketingTabs from "./components/MarketingTabs";
+import MarketingGallery from "./components/MarketingGallery";
+import PopupModal from "./components/PopupModal";
+
 // 마케팅 아이템 타입 정의
 interface MarketingItem {
   id: string;          // 고유 ID (샤오홍슈 포스트 ID 등)
@@ -205,8 +211,8 @@ const weiboData: MarketingItem[] = [
 const navItems = [
   { label: '위챗 미니프로그램 쇼핑몰', href: '/' },
   { label: '중국 마케팅 사례', href: '/china-marketing' },
-  { label: 'Insight', href: '#Insight' },
-  { label: 'betterPoS', href: '#better-pos' },
+  { label: 'Insight', href: '/Insight' },
+  { label: 'betterPoS', href: '/BetterPos' },
 ];
 
 // 중국 마케팅 사례 페이지 메인 컴포넌트
@@ -304,34 +310,6 @@ export default function ChinaMarketing() {
     setSelectedItem(null);
   };
 
-  // 현재 활성 탭에 따른 데이터 반환
-  const getTabData = () => {
-    switch (activeTab) {
-      case 'xiaohongshu':
-        return xiaohongshuData;
-      case 'wechat':
-        return wechatData;
-      case 'weibo':
-        return weiboData;
-      default:
-        return [];
-    }
-  };
-
-  // TODO: 추후 실제 데이터 개수로 변경 예정
-  // 현재는 원본 홈페이지와 동일한 개수로 하드코딩
-  const getTabCount = (tab: 'xiaohongshu' | 'wechat' | 'weibo') => {
-    switch (tab) {
-      case 'xiaohongshu':
-        return 102; // 실제: xiaohongshuData.length (16개)
-      case 'wechat':
-        return 64;  // 실제: wechatData.length (16개)
-      case 'weibo':
-        return 11;  // 실제: weiboData.length (9개)
-      default:
-        return 0;
-    }
-  };
 
   return (
     <>
@@ -421,146 +399,29 @@ export default function ChinaMarketing() {
         <section className="bg-gray-50 dark:bg-gray-800 py-12">
           <div className="max-w-7xl mx-auto px-6">
             {/* 메인 비주얼 슬라이더 */}
-            <div
-              className="relative w-full mb-8 overflow-hidden rounded-lg cursor-grab active:cursor-grabbing"
-              style={{ aspectRatio: '16/9' }}
-              onMouseDown={handleDragStart}
-              onMouseMove={handleDragMove}
-              onMouseUp={handleDragEnd}
-              onMouseLeave={handleDragEnd}
-              onTouchStart={handleDragStart}
-              onTouchMove={handleDragMove}
-              onTouchEnd={handleDragEnd}
-            >
-              {/* 슬라이더 이미지들 */}
-              <div
-                className="flex transition-transform duration-500 ease-in-out h-full"
-                style={{
-                  transform: `translateX(calc(-${currentSlide * 100}% + ${isDragging ? dragX : 0}px))`,
-                  transition: isDragging ? 'none' : 'transform 0.5s ease-in-out'
-                }}
-              >
-                {visualImages.map((image, index) => (
-                  <div key={index} className="w-full h-full flex-shrink-0 relative">
-                    {/* 데스크톱용 이미지 */}
-                    <Image
-                      src={image.desktop}
-                      alt={image.alt}
-                      fill
-                      style={{ objectFit: 'contain' }}
-                      priority={index === 0}
-                      draggable={false}
-                      className="hidden md:block"
-                    />
-                    {/* 모바일용 이미지 */}
-                    <Image
-                      src={image.mobile}
-                      alt={image.alt}
-                      fill
-                      style={{ objectFit: 'contain' }}
-                      priority={index === 0}
-                      draggable={false}
-                      className="block md:hidden"
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {/* 슬라이더 인디케이터 (점) */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                {visualImages.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all ${
-                      currentSlide === index
-                        ? 'bg-white'
-                        : 'bg-white/50 hover:bg-white/75'
-                    }`}
-                    aria-label={`슬라이드 ${index + 1}로 이동`}
-                  />
-                ))}
-              </div>
-
-              {/* 슬라이더 카운터 */}
-              <div className="absolute bottom-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-                {currentSlide + 1} / {visualImages.length}
-              </div>
-            </div>
+            <VisualSlider
+              visualImages={visualImages}
+              currentSlide={currentSlide}
+              isDragging={isDragging}
+              dragX={dragX}
+              goToSlide={goToSlide}
+              handleDragStart={handleDragStart}
+              handleDragMove={handleDragMove}
+              handleDragEnd={handleDragEnd}
+            />
           </div>
         </section>
 
         {/* 탭 섹션 - 플랫폼별 마케팅 사례 */}
         <section className="py-12">
-          <div className="max-w-7xl mx-auto px-6">
-            {/* 플랫폼 선택 탭 버튼들 */}
-            <div className="flex justify-center mb-8">
-              <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
-                <button
-                  onClick={() => setActiveTab('xiaohongshu')}
-                  className={`px-6 py-3 rounded-md font-semibold transition-all ${
-                    activeTab === 'xiaohongshu'
-                      ? 'bg-white dark:bg-gray-600 text-blue-600 shadow-md'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-blue-600'
-                  }`}
-                >
-                  샤오홍슈 ({getTabCount('xiaohongshu')})
-                </button>
-                <button
-                  onClick={() => setActiveTab('wechat')}
-                  className={`px-6 py-3 rounded-md font-semibold transition-all ${
-                    activeTab === 'wechat'
-                      ? 'bg-white dark:bg-gray-600 text-blue-600 shadow-md'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-blue-600'
-                  }`}
-                >
-                  위챗 ({getTabCount('wechat')})
-                </button>
-                <button
-                  onClick={() => setActiveTab('weibo')}
-                  className={`px-6 py-3 rounded-md font-semibold transition-all ${
-                    activeTab === 'weibo'
-                      ? 'bg-white dark:bg-gray-600 text-blue-600 shadow-md'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-blue-600'
-                  }`}
-                >
-                  웨이보 ({getTabCount('weibo')})
-                </button>
-              </div>
-            </div>
-
-            {/* 마케팅 사례 카드 그리드 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {getTabData().map((item) => (
-                <div
-                  key={item.id}
-                  className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
-                  onClick={() => openPopup(item)}
-                >
-                  <div className="relative h-48">
-                    <Image
-                      src={item.imageUrl}
-                      alt={item.title}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                      {item.title}
-                    </h3>
-                    {item.platform !== 'wechat' && (
-                      <div className="text-sm text-gray-600 dark:text-gray-400 space-x-2">
-                        {item.followers && <span>팔로워 {item.followers}</span>}
-                        {item.likes && <span>좋아요 {item.likes}</span>}
-                        {item.comments && <span>댓글 {item.comments}</span>}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <MarketingTabs activeTab={activeTab} onTabChange={setActiveTab} />
+          <MarketingGallery
+            activeTab={activeTab}
+            xiaohongshuData={xiaohongshuData}
+            wechatData={wechatData}
+            weiboData={weiboData}
+            onItemClick={openPopup}
+          />
         </section>
 
         {/* 하단 푸터 */}
@@ -602,55 +463,11 @@ export default function ChinaMarketing() {
         </footer>
 
         {/* 마케팅 사례 상세보기 팝업 모달 */}
-        {isPopupOpen && selectedItem && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-4xl max-h-[90vh] overflow-hidden">
-              <div className="flex justify-between items-center p-4 border-b dark:border-gray-600">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  {selectedItem.title}
-                </h3>
-                <button
-                  onClick={closePopup}
-                  className="text-gray-700 dark:text-gray-300 hover:text-red-500"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              <div className="p-4 h-96 overflow-auto">
-                {/* 샤오홍슈 - iframe으로 실제 포스트 표시 */}
-                {selectedItem.platform === 'xiaohongshu' && (
-                  <iframe
-                    src={`https://www.xiaohongshu.com/discovery/item/${selectedItem.id}?apptime=1585747249&appuid=595667a350c4b40153cb9370&xhsshare=CopyLink`}
-                    className="w-full h-full border-0"
-                    title={selectedItem.title}
-                  />
-                )}
-                {/* 웨이보 - iframe으로 실제 포스트 표시 */}
-                {selectedItem.platform === 'weibo' && selectedItem.popupUrl && (
-                  <iframe
-                    src={selectedItem.popupUrl}
-                    className="w-full h-full border-0"
-                    title={selectedItem.title}
-                  />
-                )}
-                {/* 위챗 - 이미지만 표시 (iframe 지원 안됨) */}
-                {selectedItem.platform === 'wechat' && (
-                  <div className="flex items-center justify-center h-full">
-                    <Image
-                      src={selectedItem.imageUrl}
-                      alt={selectedItem.title}
-                      width={400}
-                      height={300}
-                      style={{ objectFit: 'contain' }}
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        )}
+        <PopupModal
+          isOpen={isPopupOpen}
+          selectedItem={selectedItem}
+          onClose={closePopup}
+        />
       </div>
     </>
   );
