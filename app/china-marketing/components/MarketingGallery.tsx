@@ -63,7 +63,7 @@ export default function MarketingGallery({
 
   return (
     <div className="max-w-7xl mx-auto px-6 mb-16">
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {currentData.map((item) => (
           <div
             key={item.id}

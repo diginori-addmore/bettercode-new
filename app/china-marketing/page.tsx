@@ -196,15 +196,15 @@ const wechatData: MarketingItem[] = [
 // 웨이보 마케팅 사례 데이터 (중국의 트위터)
 // TODO: 추후 API나 CMS에서 동적으로 가져올 예정
 const weiboData: MarketingItem[] = [
-  { id: '4489362324603307', title: '天生励志的朱', followers: '5473', likes: '9', comments: '5', imageUrl: '/assets/img/temp_weibo01.png', platform: 'weibo', popupUrl: 'https://m.weibo.cn/status/4489362324603307' },
-  { id: '4487885065508492', title: '在韩土地投资', followers: '2925', likes: '7', comments: '0', imageUrl: '/assets/img/temp_weibo02.png', platform: 'weibo', popupUrl: 'https://m.weibo.cn/status/4487885065508492' },
-  { id: '4489267193696040', title: '在韩小白白', followers: '2만', likes: '7', comments: '8', imageUrl: '/assets/img/temp_weibo03.png', platform: 'weibo', popupUrl: 'https://m.weibo.cn/status/4489267193696040' },
-  { id: '4486688124508890', title: 'cherry泡菜酱要转运', followers: '6762', likes: '11', comments: '1', imageUrl: '/assets/img/temp_weibo04.png', platform: 'weibo', popupUrl: 'https://m.weibo.cn/status/4486688124508890' },
-  { id: '4489016160406612', title: '韩国KOREA思密达', followers: '1.2만', likes: '6', comments: '0', imageUrl: '/assets/img/temp_weibo05.png', platform: 'weibo', popupUrl: 'https://m.weibo.cn/status/4489016160406612' },
-  { id: '4488675473412086', title: '桃子酱suzy', followers: '8814', likes: '2', comments: '1', imageUrl: '/assets/img/temp_weibo06.png', platform: 'weibo', popupUrl: 'https://m.weibo.cn/status/4488675473412086' },
-  { id: '4486482226095776', title: 'AEnov', followers: '1만', likes: '5', comments: '9', imageUrl: '/assets/img/temp_weibo07.png', platform: 'weibo', popupUrl: 'https://m.weibo.cn/status/4486482226095776' },
-  { id: '4489266291564530', title: '郑舒文0926', followers: '1.5만', likes: '5', comments: '0', imageUrl: '/assets/img/temp_weibo08.png', platform: 'weibo', popupUrl: 'https://m.weibo.cn/status/4489266291564530' },
-  { id: '4489051161672770', title: '是甜心Ooo', followers: '5만', likes: '0', comments: '0', imageUrl: '/assets/img/temp_weibo09.png', platform: 'weibo', popupUrl: 'https://m.weibo.cn/status/4489051161672770' }
+  { id: '4489362324603307', title: '天生励志的朱', followers: '5473', likes: '9', comments: '5', imageUrl: '/assets/img/temp_weibo01.png', platform: 'weibo', popupUrl: 'https://weibo.cn/status/4489362324603307' },
+  { id: '4487885065508492', title: '在韩土地投资', followers: '2925', likes: '7', comments: '0', imageUrl: '/assets/img/temp_weibo02.png', platform: 'weibo', popupUrl: 'https://weibo.cn/status/4487885065508492' },
+  { id: '4489267193696040', title: '在韩小白白', followers: '2만', likes: '7', comments: '8', imageUrl: '/assets/img/temp_weibo03.png', platform: 'weibo', popupUrl: 'https://weibo.cn/status/4489267193696040' },
+  { id: '4486688124508890', title: 'cherry泡菜酱要转运', followers: '6762', likes: '11', comments: '1', imageUrl: '/assets/img/temp_weibo04.png', platform: 'weibo', popupUrl: 'https://weibo.cn/status/4486688124508890' },
+  { id: '4489016160406612', title: '韩国KOREA思密达', followers: '1.2만', likes: '6', comments: '0', imageUrl: '/assets/img/temp_weibo05.png', platform: 'weibo', popupUrl: 'https://weibo.cn/status/4489016160406612' },
+  { id: '4488675473412086', title: '桃子酱suzy', followers: '8814', likes: '2', comments: '1', imageUrl: '/assets/img/temp_weibo06.png', platform: 'weibo', popupUrl: 'https://weibo.cn/status/4488675473412086' },
+  { id: '4486482226095776', title: 'AEnov', followers: '1만', likes: '5', comments: '9', imageUrl: '/assets/img/temp_weibo07.png', platform: 'weibo', popupUrl: 'https://weibo.cn/status/4486482226095776' },
+  { id: '4489266291564530', title: '郑舒文0926', followers: '1.5만', likes: '5', comments: '0', imageUrl: '/assets/img/temp_weibo08.png', platform: 'weibo', popupUrl: 'https://weibo.cn/status/4489266291564530' },
+  { id: '4489051161672770', title: '是甜心Ooo', followers: '5만', likes: '0', comments: '0', imageUrl: '/assets/img/temp_weibo09.png', platform: 'weibo', popupUrl: 'https://weibo.cn/status/4489051161672770' }
 ];
 
 // navItems 정의 (메인 페이지와 동일)
@@ -332,7 +332,7 @@ export default function ChinaMarketing() {
           </button>
 
           {/* PC 메뉴 */}
-          <ul className="md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <li key={item.label}>
                 <a
