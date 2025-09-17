@@ -422,7 +422,7 @@ export default function ChinaMarketing() {
           <div className="max-w-7xl mx-auto px-6">
             {/* 메인 비주얼 슬라이더 */}
             <div
-              className="relative w-full h-64 md:h-96 mb-8 overflow-hidden rounded-lg cursor-grab active:cursor-grabbing"
+              className="relative w-full h-48 sm:h-64 md:h-96 mb-8 overflow-hidden rounded-lg cursor-grab active:cursor-grabbing"
               onMouseDown={handleDragStart}
               onMouseMove={handleDragMove}
               onMouseUp={handleDragEnd}
@@ -441,6 +441,7 @@ export default function ChinaMarketing() {
               >
                 {visualImages.map((image, index) => (
                   <div key={index} className="w-full h-full flex-shrink-0 relative">
+                    {/* 데스크톱용 이미지 */}
                     <Image
                       src={image.desktop}
                       alt={image.alt}
@@ -448,6 +449,17 @@ export default function ChinaMarketing() {
                       style={{ objectFit: 'cover' }}
                       priority={index === 0}
                       draggable={false}
+                      className="hidden md:block"
+                    />
+                    {/* 모바일용 이미지 */}
+                    <Image
+                      src={image.mobile}
+                      alt={image.alt}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      priority={index === 0}
+                      draggable={false}
+                      className="block md:hidden"
                     />
                   </div>
                 ))}
