@@ -221,6 +221,10 @@ export default function ChinaMarketing() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   // 슬라이더 현재 인덱스 (0: 첫번째 이미지, 1: 두번째 이미지)
   const [currentSlide, setCurrentSlide] = useState(0);
+  // 드래그 상태
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [dragX, setDragX] = useState(0);
 
   // 비주얼 이미지 데이터
   const visualImages = [
@@ -253,6 +257,39 @@ export default function ChinaMarketing() {
   // 슬라이드 이동 함수
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
+  };
+
+  // 드래그 시작
+  const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
+    setIsDragging(true);
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    setStartX(clientX);
+    setDragX(0);
+  };
+
+  // 드래그 중
+  const handleDragMove = (e: React.MouseEvent | React.TouchEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    setDragX(clientX - startX);
+  };
+
+  // 드래그 끝
+  const handleDragEnd = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+
+    // 드래그 거리가 50px 이상이면 슬라이드 변경
+    if (Math.abs(dragX) > 50) {
+      if (dragX > 0 && currentSlide > 0) {
+        setCurrentSlide(currentSlide - 1);
+      } else if (dragX < 0 && currentSlide < visualImages.length - 1) {
+        setCurrentSlide(currentSlide + 1);
+      }
+    }
+
+    setDragX(0);
   };
 
   // 팝업 열기 함수
@@ -383,18 +420,24 @@ export default function ChinaMarketing() {
         {/* 메인 히어로 섹션 - 페이지 소개 및 비주얼 */}
         <section className="bg-gray-50 dark:bg-gray-800 py-12">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-8">
-              <p className="text-gray-600 dark:text-gray-400 mb-4">
-                * 베터코드가 주관한 라비오뜨 상품 마케팅 사례를 게시한 페이지입니다.
-              </p>
-            </div>
-
             {/* 메인 비주얼 슬라이더 */}
-            <div className="relative w-full h-64 md:h-96 mb-8 overflow-hidden rounded-lg">
+            <div
+              className="relative w-full h-64 md:h-96 mb-8 overflow-hidden rounded-lg cursor-grab active:cursor-grabbing"
+              onMouseDown={handleDragStart}
+              onMouseMove={handleDragMove}
+              onMouseUp={handleDragEnd}
+              onMouseLeave={handleDragEnd}
+              onTouchStart={handleDragStart}
+              onTouchMove={handleDragMove}
+              onTouchEnd={handleDragEnd}
+            >
               {/* 슬라이더 이미지들 */}
               <div
                 className="flex transition-transform duration-500 ease-in-out h-full"
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                style={{
+                  transform: `translateX(calc(-${currentSlide * 100}% + ${isDragging ? dragX : 0}px))`,
+                  transition: isDragging ? 'none' : 'transform 0.5s ease-in-out'
+                }}
               >
                 {visualImages.map((image, index) => (
                   <div key={index} className="w-full h-full flex-shrink-0 relative">
@@ -404,6 +447,7 @@ export default function ChinaMarketing() {
                       fill
                       style={{ objectFit: 'cover' }}
                       priority={index === 0}
+                      draggable={false}
                     />
                   </div>
                 ))}
