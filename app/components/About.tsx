@@ -24,14 +24,14 @@ export default function HighlightSection() {
 
                         {/* 왼쪽 큰 텍스트 */}
                         <div className="w-1/3 pr-4">
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-left leading-2">
+                            <h2 className="text-lg md:text-4xl font-bold text-left leading-2">
                                 위챗<br />미니프로그램이<br />무엇인가요?
                             </h2>
                         </div>
 
                         {/* 오른쪽 작은 텍스트와 버튼 */}
                         <div className="w-2/3 pl-4 flex flex-col items-start text-left">
-                            <p className="text-base md:text-md">
+                            <p className="text-base text-xs md:text-sm">
                                 10억명 이상이 매일 사용하는 중국 메신저 서비스 입니다.<br />
                                 별도의 결제수단 연결 필요 없이 사용자는 즉시 구매와 지불을 할 수 있습니다.<br />
                                 별도로 앱을 설치하거나 로그인 할 필요 없이 미니프로그램 이름 검색,<br />

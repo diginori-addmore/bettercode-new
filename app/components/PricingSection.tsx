@@ -13,7 +13,7 @@ export default function PricingSection() {
         >
             <div className="max-w-6xl mx-auto px-4 text-center">
                 {/* 중앙 상단 제목 */}
-                <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-12">
+                <h2 className="text-2xl md:text-4xl font-extrabold text-black mb-12">
                     상점 개설 절차
                 </h2>
 
@@ -31,7 +31,7 @@ export default function PricingSection() {
                 </div>
 
                 {/* 요금제 제목 */}
-                <h3 className="text-3xl md:text-4xl font-lg text-black mb-16">
+                <h3 className="text-xl md:text-4xl font-lg text-black mb-3 md:mb-16">
                     요금제
                 </h3>
 
@@ -39,9 +39,9 @@ export default function PricingSection() {
                 <div className="flex flex-col lg:flex-row justify-center gap-8 mb-20">
                     {/* 첫 번째 요금제 박스 */}
                     <div className="bg-white/50 backdrop-blur-sm rounded-lg shadow-xl p-8 flex flex-col items-center w-full lg:w-1/2 max-w-lg">
-                        <p className="text-lg font-extrabold text-gray-800 mb-2">쇼핑몰 서비스</p>
-                        <h4 className="text-4xl font-extrabold text-blue-600 mb-4">월 8만원</h4>
-                        <p className="text-sm text-gray-600 mb-3">/ 1년 계약 시 50%<br />할인</p>
+                        <p className="text-sm md:text-lg font-extrabold text-gray-800 mb-2">쇼핑몰 서비스</p>
+                        <h4 className="text-2xl md:text-4xl font-extrabold text-blue-600 mb-4">월 8만원</h4>
+                        <p className="text-xs md:text-sm text-gray-600 mb-3">/ 1년 계약 시 50%<br />할인</p>
 
                         <hr className="border-gray-400/50 w-full mb-5" />
 
@@ -71,9 +71,9 @@ export default function PricingSection() {
 
                     {/* 두 번째 요금제 박스 */}
                     <div className="bg-white/50 backdrop-blur-sm rounded-lg shadow-xl p-8 flex flex-col items-center w-full lg:w-1/2 max-w-lg">
-                        <p className="text-lg font-extrabold text-gray-800 mb-2">지원 서비스</p>
-                        <h4 className="text-4xl font-extrabold text-blue-600 mb-4">50만원</h4>
-                        <p className="text-sm text-gray-600 mb-8">/ 일회성 </p>
+                        <p className="text-sm md:text-lg font-extrabold text-gray-800 mb-2">지원 서비스</p>
+                        <h4 className="text-2xl md:text-4xl font-extrabold text-blue-600 mb-4">50만원</h4>
+                        <p className="text-xs md:text-sm text-gray-600 mb-8">/ 일회성 </p>
 
                         <hr className="border-gray-400/50 w-full mb-5" />
 
@@ -95,10 +95,10 @@ export default function PricingSection() {
                 </div>
 
                 {/* 하단 CTA 영역 */}
-                <p className="text-3xl md:text-5xl font-semibold text-black mb-6">
+                <p className="text-2xl md:text-5xl font-semibold text-black mb-6">
                     중국 소비자를 위한<br />분양형 미니프로그램 쇼핑몰
                 </p>
-                <p className="text-base md:text-lg text-gray-500 mb-8">
+                <p className="text-base text-sm md:text-lg text-gray-500 mb-8">
                     손쉽게 위챗 미니프로그램 기반 쇼핑몰 개설 및 판매까지<br />원스톱으로 자유를 제공하는 플랫폼을 경험하세요.
                 </p>
                 <button

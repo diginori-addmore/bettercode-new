@@ -48,7 +48,7 @@ export default function Clients() {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="max-w-5xl mx-auto px-4 text-center">
-        <h2 className="text-4xl font-extrabold mb-12">고객사</h2>
+        <h2 className="text-2xl md:text-4xl font-extrabold mb-12">고객사</h2>
 
         {/* 4x2 그리드를 만들기 위해 두 개의 행으로 나눔 */}
         <div className="space-y-8">
@@ -57,7 +57,7 @@ export default function Clients() {
             {clients.slice(0, 4).map((client, index) => (
               <div
                 key={client.title}
-                className={`flex flex-col mx-8 items-center w-40 ${index > 0 ? "-ml-1" : "" // 첫 아이템 제외하고 왼쪽으로 겹치기
+                className={`flex flex-col mx-3 md:mx-8 items-center w-40 ${index > 0 ? "-ml-1" : "" // 첫 아이템 제외하고 왼쪽으로 겹치기
                   }`}
               >
                 <Image
@@ -67,8 +67,8 @@ export default function Clients() {
                   height={140}
                   className="object-contain"
                 />
-                <h3 className="whitespace-pre-line font-bold mt-4 text-xl text-gray-800">{client.title}</h3>
-                <p className="text-sm mt-2 text-black">{client.description}</p>
+                <h3 className="whitespace-pre-line font-bold mt-4 text-sm md:text-xl text-gray-800">{client.title}</h3>
+                <p className="text-xs md:text-sm mt-2 text-black">{client.description}</p>
               </div>
             ))}
           </div>
@@ -78,7 +78,7 @@ export default function Clients() {
             {clients.slice(4, 8).map((client, index) => (
               <div
                 key={client.title}
-                className={`flex flex-col mx-8 items-center w-40 ${index > 0 ? "-ml-1" : ""
+                className={`flex flex-col mx-3 md:mx-8 items-center w-40 ${index > 0 ? "-ml-1" : ""
                   }`}
               >
                 <Image
@@ -88,15 +88,15 @@ export default function Clients() {
                   height={140}
                   className="object-contain"
                 />
-                <h3 className="whitespace-pre-line font-bold mt-4 text-xl text-gray-800 whitespace">{client.title}</h3>
-                <p className="whitespace-pre-line text-sm mt-2 text-black">{client.description}</p>
+                <h3 className="whitespace-pre-line font-bold mt-4 text-sm md:text-xl text-gray-800 whitespace">{client.title}</h3>
+                <p className="whitespace-pre-line text-xs md:text-sm mt-2 text-black">{client.description}</p>
               </div>
             ))}
           </div>
         </div>
         {/* 하단 부가 설명 */}
-        <p className="mt-16 text-gray-400 text-lg">
-          *위챗으로 스캔하거나 모바일 브라우저에서 큐알이미지를 클릭하세요.
+        <p className="mt-16 text-gray-400 text-sm md:text-lg">
+          *위챗으로 스캔하거나 모바일 브라우저에서<br className="md:hidden" />큐알이미지를 클릭하세요.
         </p>
       </div>
     </section>

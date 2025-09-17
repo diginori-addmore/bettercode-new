@@ -26,15 +26,15 @@ export default function FeatureSection() {
         <div className="bg-white dark:bg-gray-900 py-20 px-4 sm:px-6 lg:px-20">
             <div className="max-w-7xl mx-auto text-center">
 
-                <h2 className="text-3xl sm:text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
-                    중국 소비자 판매를 위한 기본 쇼핑몰 기능 제공
+                <h2 className="text-xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+                    중국 소비자 판매를 위한<br className="md:hidden" />기본 쇼핑몰 기능 제공
                 </h2>
 
 
-                <p className="text-xl text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">
+                <p className="text-sm md:text-xl text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">
                     상점 디자인, 상품관리, 주문관리, 쿠폰기능, 지불결제 등<br />쇼핑몰에 필요한 기능을 갖춘 웹 관리도구를 제공합니다.
                 </p>
-                <h2 className="text-3xl sm:text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
                     핵심기능
                 </h2>
 
@@ -60,7 +60,7 @@ export default function FeatureSection() {
                             </div>
 
                             {/* 좌측 정렬 제목 */}
-                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                            <h3 className="text-lg md:text-2xl font-bold text-gray-900 dark:text-white mb-3">
                                 {box.title}
                             </h3>
 

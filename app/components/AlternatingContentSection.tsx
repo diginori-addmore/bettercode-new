@@ -24,10 +24,10 @@ export default function AlternatingContentSection({ data }: AlternatingContentSe
                     >
                         {/* 텍스트 컨테이너 */}
                         <div className="w-full md:w-1/2 text-left">
-                            <h2 className="text-2xl whitespace-pre-line sm:text-3xl font-bold text-gray-900 leading-tight mb-4">
+                            <h2 className="text-xl md:text-2xl whitespace-pre-line sm:text-3xl font-bold text-gray-900 leading-tight mb-4">
                                 {item.title}
                             </h2>
-                            <p className="text-lg whitespace-pre-line text-gray-700 leading-relaxed">
+                            <p className="text-sm md:text-lg whitespace-pre-line text-gray-700 leading-relaxed">
                                 {item.description}
                             </p>
                         </div>
