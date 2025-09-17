@@ -10,7 +10,7 @@ export default function OperatingScreens() {
     <section id="operating-screens" className="py-16 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
             실제 운영 화면
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
@@ -18,7 +18,7 @@ export default function OperatingScreens() {
           </p>
         </div>
 
-        <div className="flex justify-center gap-4 mb-8">
+        <div className="flex justify-center gap-4 mb-1 md:mb-8">
           <button
             onClick={() => setActiveScreen('miniprogram')}
             className={`px-6 py-2 rounded-3xl font-semibold transition-all ${activeScreen === 'miniprogram'
@@ -40,7 +40,7 @@ export default function OperatingScreens() {
         </div>
 
         <div className="flex justify-center">
-          <div className="relative w-full max-w-4xl h-96">
+          <div className="relative w-full max-w-4xl h-60 md:h-96">
             {activeScreen === 'miniprogram' ? (
               <Image
                 src="/mini_app_image.png"
