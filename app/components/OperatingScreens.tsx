@@ -21,21 +21,19 @@ export default function OperatingScreens() {
         <div className="flex justify-center gap-4 mb-8">
           <button
             onClick={() => setActiveScreen('miniprogram')}
-            className={`px-8 py-3 rounded-lg font-semibold transition-all ${
-              activeScreen === 'miniprogram'
-                ? 'bg-blue-600 text-white shadow-lg'
-                : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
-            }`}
+            className={`px-6 py-2 rounded-3xl font-semibold transition-all ${activeScreen === 'miniprogram'
+              ? 'bg-blue-600 text-white shadow-lg'
+              : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
+              }`}
           >
             미니프로그램 화면
           </button>
           <button
             onClick={() => setActiveScreen('admin')}
-            className={`px-8 py-3 rounded-lg font-semibold transition-all ${
-              activeScreen === 'admin'
-                ? 'bg-blue-600 text-white shadow-lg'
-                : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
-            }`}
+            className={`px-6 py-2 rounded-3xl font-semibold transition-all ${activeScreen === 'admin'
+              ? 'bg-blue-600 text-white shadow-lg'
+              : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
+              }`}
           >
             관리자 화면
           </button>

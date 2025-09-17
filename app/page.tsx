@@ -8,8 +8,8 @@ import AlternatingContentSection from "./components/AlternatingContentSection";
 import About from "./components/About";
 import OperatingScreens from "./components/OperatingScreens";
 import Clientreview from "./components/Clientreview";
-import Clients from "./components/Clients";
-
+import Client from "./components/Clients";
+import PricingSection from "./components/PricingSection";
 
 const navItems = [
   { label: '위챗 미니프로그램 쇼핑몰', href: '#wechat-mall' },
@@ -35,7 +35,7 @@ export default function Home() {
       업그레이드를 받을 수 있습니다. \n \
       월간/연간 구독형 서비스로, 초기 비용부담은 줄이고 지속적으로 \n \
       개선된 서비스를 이용할 수 있습니다.",
-      imageUrl: "/images/placeholder-1.jpg",
+      imageUrl: "/AlternatingContent/cloud_service.png",
       imageAlt: "첫 번째 이미지",
     },
     {
@@ -48,7 +48,7 @@ export default function Home() {
       따라서 별도의 중국법인회사를 설립 할 필요가 없습니다. \n \
       소비자가 지불한 판매 대금은 한국 지불 대항사(PG)사를 거쳐 \n \
       고객사 계좌로 입금이 됩니다.",
-      imageUrl: "/images/placeholder-2.jpg",
+      imageUrl: "/AlternatingContent/bank_account.png",
       imageAlt: "두 번째 이미지",
     },
     {
@@ -59,7 +59,7 @@ export default function Home() {
       한국 개발팀이 자체 개발한 위챗 미니프로그램과 웹 관리도구를 제공합니다.\n \
       신속한 신규 기능 추가 대응 및 긴급 상황에서도\n \
       빠른 대웅이 가능합니다.",
-      imageUrl: "/images/placeholder-3.jpg",
+      imageUrl: "/AlternatingContent/korean_developer.png",
       imageAlt: "세 번째 이미지",
     },
     {
@@ -70,7 +70,7 @@ export default function Home() {
       중국 해관에 정식 등록된 베터코드 중국 법인이 통관 신고를 \n \
       지원해 드립니다. \n \
       콰징 통관에 대해서는 별도로 문의해 주세요.",
-      imageUrl: "/images/placeholder-4.jpg",
+      imageUrl: "/AlternatingContent/declare_service.png",
       imageAlt: "네 번째 이미지",
     },
   ];
@@ -165,40 +165,37 @@ export default function Home() {
       <AlternatingContentSection data={contentData} />
       <About />
       <Clientreview />
-      <Clients />
+      <Client />
       <OperatingScreens />
+      <PricingSection />
 
-      {/* 페이지 메인 콘텐츠 */}
-      <div className="font-sans min-h-screen pt-24 sm:pt-28 flex flex-col bg-white dark:bg-gray-900">
-        <main className="flex-1">
-          {/* 페이지 콘텐츠 영역 */}
-        </main>
 
-        {/* footer 영역 */}
-        <footer className="w-full bg-gray-900 text-white p-8">
-          <div className="max-w-7xl mx-auto text-center space-y-4">
-            <p className="text-sm leading-6">
-              (주)베터코드<br />
-              contactus@bettercode.kr &nbsp; ⦁ &nbsp; 070-4334-2016<br />
-              서울시 강남구 강남대로 364 미왕빌딩 패스트파이브 강남 2호점 16층 1611호
-            </p>
 
-            <a
-              href="https://www.facebook.com/%EB%B2%A0%ED%84%B0%EC%BD%94%EB%93%9C-%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC-1666140583448053"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:underline"
-            >
-              Facebook 바로가기
-            </a>
+      {/* footer 영역 */}
+      <footer className="w-full bg-gray-900 text-white p-8">
+        <div className="max-w-7xl mx-auto text-center space-y-4">
+          <p className="text-sm leading-6">
+            (주)베터코드<br />
+            contactus@bettercode.kr &nbsp; ⦁ &nbsp; 070-4334-2016<br />
+            서울시 강남구 강남대로 364 미왕빌딩 패스트파이브 강남 2호점 16층 1611호
+          </p>
 
-            <p className="text-xs text-gray-400">
-              Copyright &copy; BetterCode All Rights Reserved.
-            </p>
-          </div>
-        </footer>
+          <a
+            href="https://www.facebook.com/%EB%B2%A0%ED%84%B0%EC%BD%94%EB%93%9C-%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC-1666140583448053"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:underline"
+          >
+            Facebook 바로가기
+          </a>
 
-        {/* Popup iframe */}
+          <p className="text-xs text-gray-400">
+            Copyright &copy; BetterCode All Rights Reserved.
+          </p>
+        </div>
+      </footer>
+
+      {/* Popup iframe
         {isPopupOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-11/12 md:w-3/4 lg:w-1/2">
@@ -218,8 +215,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        )}
-      </div>
+        )} */}
     </>
   );
 }
