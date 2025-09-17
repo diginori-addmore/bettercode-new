@@ -8,19 +8,18 @@ import AlternatingContentSection from "./components/AlternatingContentSection";
 import About from "./components/About";
 import OperatingScreens from "./components/OperatingScreens";
 import Clientreview from "./components/Clientreview";
-import Client from "./components/Clients";
+import Clients from "./components/Clients";
 import PricingSection from "./components/PricingSection";
 
 const navItems = [
   { label: '위챗 미니프로그램 쇼핑몰', href: '#wechat-mall' },
   { label: '중국 마케팅 사례', href: '#marketing-cases' },
-  { label: 'Insight', href: '#Insight' },
-  { label: 'betterPoS', href: '#better-pos' },
+  { label: 'Insight', href: '/Insight' },
+  { label: 'BetterPoS', href: '/BetterPos' },
 ];
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -96,7 +95,7 @@ export default function Home() {
           </button>
 
           {/* PC 메뉴 */}
-          <ul className="md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <li key={item.label}>
                 <a
@@ -144,31 +143,20 @@ export default function Home() {
                   </a>
                 </li>
               ))}
-              <li>
-                <button
-                  onClick={() => { setIsPopupOpen(true); setIsMobileMenuOpen(false); }}
-                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium"
-                >
-                  Popup 보기
-                </button>
-              </li>
             </ul>
           </div>
         )}
       </nav>
 
-
-
-
+      {/* 페이지 콘텐츠 */}
       <Hero />
       <Mainfunction />
       <AlternatingContentSection data={contentData} />
       <About />
       <Clientreview />
-      <Client />
+      <Clients />
       <OperatingScreens />
       <PricingSection />
-
 
 
       {/* footer 영역 */}
@@ -194,28 +182,6 @@ export default function Home() {
           </p>
         </div>
       </footer>
-
-      {/* Popup iframe
-        {isPopupOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-11/12 md:w-3/4 lg:w-1/2">
-              <div className="flex justify-end p-2">
-                <button
-                  className="text-gray-700 dark:text-gray-300 hover:text-red-500"
-                  onClick={() => setIsPopupOpen(false)}
-                >
-                  닫기
-                </button>
-              </div>
-              <div className="p-4">
-                <iframe
-                  src="https://www.xiaohongshu.com/discovery/item/5e8494d20000000001005750?apptime=1585747249&appuid=595667a350c4b40153cb9370&xhsshare=CopyLink"
-                  className="w-full h-96 border-0"
-                />
-              </div>
-            </div>
-          </div>
-        )} */}
     </>
   );
 }
