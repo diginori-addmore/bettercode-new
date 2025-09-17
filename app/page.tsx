@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import Mainfunction from "./components/Mainfunction";
 import AlternatingContentSection from "./components/AlternatingContentSection";
 import About from "./components/About";
+import OperatingScreens from "./components/OperatingScreens";
 import Clientreview from "./components/Clientreview";
 
 const navItems = [
@@ -161,6 +162,7 @@ export default function Home() {
       <Mainfunction />
       <AlternatingContentSection data={contentData} />
       <About />
+      <OperatingScreens />
       <Clientreview />
 
       {/* 페이지 메인 콘텐츠 */}
