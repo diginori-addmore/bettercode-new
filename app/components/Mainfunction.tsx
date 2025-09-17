@@ -3,17 +3,17 @@ import Image from 'next/image';
 // 박스에 들어갈 데이터 (아이콘/이미지 경로, 제목, 설명)
 const featureBoxes = [
     {
-        icon: '/icon-analytics.png',
+        icon: '/Mainfunction/function_icon1.svg',
         title: '상품관리',
         description: '카테고리, 브랜드별 상품등록 가능 상품 단위별로 조합한 세트상품 제작 가능',
     },
     {
-        icon: '/icon-security.png',
+        icon: '/Mainfunction/function_icon2.svg',
         title: '위챗지불',
         description: '중국 소비자에게 친숙한 위챗 지불을 한국 계좌로 받을 수 있는 PG연동',
     },
     {
-        icon: '/icon-support.png',
+        icon: '/Mainfunction/function_icon3.svg',
         title: '손쉬운 상점 디자인',
         description: '웹 관리화면에서 쉽게 메인페이지 및 이벤트 페이지 생성 및 디자인',
     },
@@ -23,7 +23,7 @@ export default function FeatureSection() {
     return (
         // 전체 페이지 컨테이너: 흰 배경, 다크 모드 시 어두운 배경
         // py-20: 상하 패딩으로 네비게이션바 등과 여백 확보
-        <div className="bg-white dark:bg-gray-900 py-20 px-4 sm:px-6 lg:px-8">
+        <div className="bg-white dark:bg-gray-900 py-20 px-4 sm:px-6 lg:px-20">
             <div className="max-w-7xl mx-auto text-center">
 
                 <h2 className="text-3xl sm:text-2xl font-extrabold text-gray-900 dark:text-white mb-4">

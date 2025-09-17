@@ -37,8 +37,8 @@ export default function AlternatingContentSection({ data }: AlternatingContentSe
                             <Image
                                 src={item.imageUrl}
                                 alt={item.imageAlt}
-                                width={700} // 적절한 width/height 값으로 변경하세요
-                                height={500} // 이미지 비율에 맞게 조절
+                                width={550} // 적절한 width/height 값으로 변경하세요
+                                height={400} // 이미지 비율에 맞게 조절
                                 layout="responsive" // 반응형 이미지
                                 objectFit="cover" // 이미지가 컨테이너를 덮도록
                                 className="rounded-lg shadow-lg"
