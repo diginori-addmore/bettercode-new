@@ -4,10 +4,10 @@ import { useState } from "react";
 import Image from "next/image";
 
 const navItems = [
-  { label: '위챗 미니프로그램 쇼핑몰', href: '/' },
-  { label: '중국 마케팅 사례', href: '#marketing-cases' },
-  { label: 'Insight', href: '/Insight' },
-  { label: 'BetterPoS', href: '/BetterPos' },
+  { label: "위챗 미니프로그램 쇼핑몰", href: "/" },
+  { label: "중국 마케팅 사례", href: "#marketing-cases" },
+  { label: "Insight", href: "/Insight" },
+  { label: "BetterPoS", href: "/BetterPos" },
 ];
 
 export default function NavBar() {
@@ -37,7 +37,7 @@ export default function NavBar() {
             />
           </button>
 
-          {/* PC 메뉴: md 이상에서만 보임 */}
+          {/* PC 메뉴 */}
           <ul className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <li key={item.label}>
@@ -51,7 +51,7 @@ export default function NavBar() {
             ))}
           </ul>
 
-          {/* 모바일 메뉴 버튼: md 미만에서만 보임 */}
+          {/* 모바일 메뉴 버튼 */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -59,19 +59,41 @@ export default function NavBar() {
               className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
             >
               {isMobileMenuOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  />
                 </svg>
               )}
             </button>
           </div>
         </div>
 
-        {/* 모바일 메뉴: md 미만에서만 렌더링 */}
+        {/* 모바일 메뉴 */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white dark:bg-gray-800 shadow-lg">
             <ul className="flex flex-col items-center gap-4 py-4">
@@ -90,6 +112,20 @@ export default function NavBar() {
           </div>
         )}
       </nav>
+
+      {/* 유튜브 영상 영역 */}
+      <div className="mt-24 flex justify-center">
+        <div className="w-full max-w-4xl aspect-video">
+          <iframe
+            className="w-full h-full rounded-lg shadow-lg"
+            src="https://www.youtube.com/embed/JINRcJx-o9o?si=qoJlEOaci06F-7jK"
+            title="BetterPoS 영상"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      </div>
     </>
   );
 }
