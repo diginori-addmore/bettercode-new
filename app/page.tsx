@@ -158,7 +158,6 @@ export default function Home() {
       <Clientreview />
       <Clients />
       <OperatingScreens />
-      <PricingSection />
 
 
       {/* footer 영역 */}

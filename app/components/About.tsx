@@ -11,9 +11,8 @@ export default function HighlightSection() {
                     <Image
                         src="/wechat_miniprogram.png" // 원하시는 이미지 경로로 변경하세요.
                         alt="배경 이미지"
-                        layout="fill"
-                        objectFit="cover"
-                        className="z-0"
+                        fill
+                        className="z-0 object-cover"
                     />
 
                     {/* 2. 텍스트 가독성을 위한 어두운 오버레이 */}
@@ -46,12 +45,14 @@ export default function HighlightSection() {
                                 별도로 앱을 설치하거나 로그인 할 필요 없이 미니프로그램 이름 검색,<br />
                                 친구 공유기능 클릭 등의 방법으로 사용자가 이용할 수 있습니다.
                             </p>
-                            <button
-                                type="button"
-                                className="bg-white text-black mt-4 px-5 py-2.5 font-semibold rounded-lg text-sm shadow-md hover:bg-gray-100 transition-colors duration-200"
-                            >
+                            <a
+                                href="https://blog.bettercode.kr/2022/03/16/위챗-미니프로그램-자세히-알기"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-white text-black mt-4 px-5 py-2.5 font-semibold rounded-lg text-sm shadow-md hover:bg-gray-100 transition-colors duration-200 inline-block"
+                                >
                                 자세히 알아보기 &gt;
-                            </button>
+                            </a>
                         </div>
 
                     </div>
