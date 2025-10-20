@@ -128,14 +128,6 @@ export default function ContactPage() {
               {message}
             </div>
           )}
-
-          {/* 개발 모드 정보 */}
-          {process.env.NODE_ENV === "development" && (
-            <div className="mt-8 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs text-gray-600 dark:text-gray-400">
-              <strong>개발 모드:</strong> F12 개발자 도구의 Console 탭에서 API
-              응답을 확인하세요.
-            </div>
-          )}
         </div>
       </div>
     </>
