@@ -77,7 +77,7 @@ export default function ContactPage() {
       </nav>
 
       {/* 메인 콘텐츠 */}
-      <div className="min-h-screen flex items-center justify-center p-8 pt-24">
+      <div className="min-h-screen flex items-start justify-center p-8 pt-32">
         <div className="w-full max-w-md">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 text-center">
             문의하기
@@ -128,6 +128,8 @@ export default function ContactPage() {
               {message}
             </div>
           )}
+
+
         </div>
       </div>
     </>

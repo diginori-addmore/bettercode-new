@@ -152,7 +152,7 @@ export default function InquiryForm() {
           </div>
         </nav>
 
-        <div className="min-h-screen flex items-center justify-center p-8 pt-24">
+        <div className="min-h-screen flex items-start justify-center p-8 pt-32">
           <div className="text-center max-w-md">
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               ⚠️ 오류
@@ -195,7 +195,7 @@ export default function InquiryForm() {
           </div>
         </nav>
 
-        <div className="min-h-screen flex items-center justify-center p-8 pt-24">
+        <div className="min-h-screen flex items-start justify-center p-8 pt-32">
           <div className="text-center max-w-md">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
             <p className="text-gray-600 dark:text-gray-400">링크 확인 중...</p>
@@ -227,7 +227,7 @@ export default function InquiryForm() {
           </div>
         </nav>
 
-        <div className="min-h-screen flex items-center justify-center p-8 pt-24">
+        <div className="min-h-screen flex items-start justify-center p-8 pt-32">
           <div className="text-center max-w-md">
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               ⏰ 링크 만료
@@ -273,7 +273,7 @@ export default function InquiryForm() {
           </div>
         </nav>
 
-        <div className="min-h-screen flex items-center justify-center p-8 pt-24">
+        <div className="min-h-screen flex items-start justify-center p-8 pt-32">
           <div className="text-center max-w-md">
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               ✅ 접수 완료
@@ -318,7 +318,7 @@ export default function InquiryForm() {
         </div>
       </nav>
 
-      <div className="min-h-screen flex items-center justify-center p-8 pt-24">
+      <div className="min-h-screen flex items-start justify-center p-8 pt-32">
         <div className="w-full max-w-2xl">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 text-center">
             문의 내용 작성
