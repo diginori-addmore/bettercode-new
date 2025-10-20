@@ -1,10 +1,12 @@
 "use client";
 
+import { useRouter } from 'next/navigation';
+
 export default function ContactButton() {
-    // 문의하기 버튼 클릭 시의 동작을 처리할 수 있습니다. (예: 팝업 열기, 페이지 이동 등)
+    const router = useRouter();
+    
     const handleContactClick = () => {
-        alert('문의하기 버튼이 클릭되었습니다!');
-        // 실제로는 여기에 문의 폼을 열거나, 특정 문의 페이지로 이동하는 로직을 추가합니다.
+        router.push('/contact');
     };
 
     return (
