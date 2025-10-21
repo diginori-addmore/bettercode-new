@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     const response = await fetch(
       `https://console-backend-service.bettercode.kr/api/contact-us/requests/${requestId}/verify`,
       {
-        method: 'POST',  // ← POST 명시!
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         }
