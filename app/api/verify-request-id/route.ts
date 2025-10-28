@@ -23,30 +23,20 @@ export async function POST(request: Request) {
       }
     )
     
-    const responseText = await response.text()
-    console.log('백엔드 검증 응답:', responseText)
-    console.log('상태 코드:', response.status)
+    console.log('백엔드 검증 상태 코드:', response.status)
     
-    if (!response.ok) {
-      if (response.status === 400 || response.status === 404) {
-        return Response.json(
-          { valid: false, error: '만료되거나 유효하지 않은 링크입니다' },
-          { status: 400 }
-        )
-      }
-      throw new Error('검증 실패')
+    // 3. 응답 확인
+    if (response.ok) {  // 200-299 모두 성공!
+      console.log('검증 성공')
+      return Response.json({ valid: true })
     }
     
-    // JSON 파싱
-    let data
-    try {
-      data = responseText ? JSON.parse(responseText) : {}
-    } catch (parseError) {
-      console.error('JSON 파싱 실패:', parseError)
-      throw new Error('백엔드 응답 형식이 올바르지 않습니다')
-    }
-    
-    return Response.json({ valid: true, data })
+    // 4xx, 5xx 에러 (만료되거나 잘못된 링크)
+    console.error('검증 실패:', response.status)
+    return Response.json(
+      { valid: false, error: '만료되거나 유효하지 않은 링크입니다' },
+      { status: 400 }
+    )
     
   } catch (error) {
     console.error('검증 에러:', error)

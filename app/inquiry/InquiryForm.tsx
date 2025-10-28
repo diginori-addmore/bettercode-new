@@ -38,7 +38,7 @@ export default function InquiryForm() {
 
     console.log("받은 requestId:", requestId);
     
-    // 백엔드에 ID 유효성 검증
+    // api router에 ID 유효성 검증
     const verifyRequestId = async () => {
       try {
         setVerifying(true);
