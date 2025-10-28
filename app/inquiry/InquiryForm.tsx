@@ -6,8 +6,7 @@ import Image from "next/image";
 
 export default function InquiryForm() {
   const searchParams = useSearchParams();
-  // requestId 또는 id 파라미터 둘 다 지원
-  const requestId = searchParams.get("requestId") || searchParams.get("id");
+  const requestId = searchParams.get("id");
 
   const [formData, setFormData] = useState({
     name: "",
